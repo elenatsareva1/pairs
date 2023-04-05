@@ -1,4 +1,4 @@
-export default class Card {
+export  class Card {
   _open = false
   _success = false
 
@@ -35,6 +35,7 @@ export default class Card {
 
 export class AmazingCard extends Card {
   constructor(container, number, action) {
+    super(container, number, action);
     this.container = container,
     this.number = number,
     this.action = action
@@ -47,7 +48,8 @@ export class AmazingCard extends Card {
       './img/img3.jpeg',
       './img/img4.jpeg',
       './img/img5.jpeg',
-      './img/img6.jpeg'
+      './img/img6.jpeg',
+      './img/img7.jpeg' // one more picture was needed :P 
     ]
     const img = document.createElement('img')
     img.src = cardsImgArray[value]
@@ -58,11 +60,13 @@ export class AmazingCard extends Card {
       console.log('Ошибка');
     }
 
-    if (this.img) {
-      this.card.append(this.img)
+    if (this.number) {
+       this.card.style.backgroundImage = `url('${img.src}')`
+      
     } else {
       this.card.textContent = this._cardNumber
     }
+
     super.number;
   }
 }

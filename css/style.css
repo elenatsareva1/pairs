@@ -60,7 +60,7 @@ h1 {
 
 .card.open {
   background-color: rgb(197, 215, 208);
-  background-image: none;
+  background-image: none !important;
   color: rgb(74, 118, 95);
 }
 .card.success {
