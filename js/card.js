@@ -2,11 +2,12 @@ export  class Card {
   _open = false
   _success = false
 
-  constructor(container, number, action) {
+  constructor(container, number, image, action) {
     this.card = document.createElement('div')
   this.card.classList.add('card')
   this.card.textContent = number
   this.number = number
+  this.image = image;
 
   this.card.addEventListener('click', () => {
     if (this.open == false && this.success == false) {
@@ -34,10 +35,11 @@ export  class Card {
 }
 
 export class AmazingCard extends Card {
-  constructor(container, number, action) {
-    super(container, number, action);
+  constructor(container, number, image, action) {
+    super(container, number, image, action);
     this.container = container,
     this.number = number,
+    this.image = image
     this.action = action
   }
 
@@ -54,14 +56,17 @@ export class AmazingCard extends Card {
     const img = document.createElement('img')
     img.src = cardsImgArray[value]
 
-    this._cardNumber = img.src;
+    // this._cardNumber = img.src;
+    this.image = img.src;
 
     img.onerror = function () {
       console.log('Ошибка');
     }
 
     if (this.number) {
-       this.card.style.backgroundImage = `url('${img.src}')`
+       // this.card.style.backgroundImage = `url('${img.src}')`
+       
+       // this.cardNumber = 'img1' 
       
     } else {
       this.card.textContent = this._cardNumber
